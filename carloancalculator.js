@@ -35,17 +35,3 @@ carloanCalculator.prototype.balanceNonSimple = function() {
 	this.cumulative12term() * (1 - ((this.n - 12) * (this.n - 12 + 1))) /
 	(this.n * (this.n + 1));
 }
-
-
-
-var mine = new carloanCalculator(10000,0.07,36,1);
-console.log(mine.factorA());
-console.log("payments " + mine.payment());
-console.log("balancesimple " + mine.balanceSimple());
-console.log("cumulative " + mine.cumulative());
-console.log("balanceNonSimple " + mine.balanceNonSimple());
-console.log("cumulative12term " + mine.cumulative12term());
-
-
-
-
