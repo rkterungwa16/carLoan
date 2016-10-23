@@ -1,37 +1,70 @@
-function carloanCalculator(d, i, n, m) {
+function carLoanCalculator(d, i, n, m) {
 	this.d = d; //Amount borrowed
 	this.i = i; //Interest rate
-	this.n = n; //total number of months
+	this.n = n; //Full term = total number of months
 	this.m = m; //desired month
 }
 
-carloanCalculator.prototype.factorA = function() {
+/**
+*
+*factorA()
+*Factor used in calculating monthly payments
+*/
+carLoanCalculator.prototype.factorA = function() {
 	return (1 + this.i/12);
 }
 
-
-carloanCalculator.prototype.payment = function() {
+/**
+*
+*payment()
+*Monthly payments at annual interest rate 
+*/
+carLoanCalculator.prototype.payment = function() {
 	return (this.d*(this.factorA() - 1)*Math.pow(this.factorA(), this.n))/
 	(Math.pow(this.factorA(), this.n) - 1);
 }
 
-carloanCalculator.prototype.balanceSimple = function() {
+/**
+*
+*balanceSimple()
+*Balance of payment after m months. 
+*Also called Ballon payment: Final payment that finishes off the loan.
+*/
+carLoanCalculator.prototype.balanceSimple = function() {
 	return (this.d * Math.pow(this.factorA(), this.m)) - (this.payment() *
 		(Math.pow(this.factorA(), this.m)-1))/(this.factorA() - 1);
 }
 
-carloanCalculator.prototype.cumulative = function() {
+/**
+*
+*cumulative()
+*Total interest charge (for simple interest loan) at month m.
+*/
+carLoanCalculator.prototype.cumulative = function() {
 	return ((this.payment() * this.m) - this.d + this.balanceSimple());
 }
 
-carloanCalculator.prototype.cumulative12term = function() {
-	var twelfthTerm = new carloanCalculator(this.d, this.i, this.n, 12);
-	return ((twelfthTerm.payment() * twelfthTerm.m) - twelfthTerm.d +
-		twelfthTerm.balanceSimple());
+/**
+*
+*cumulativeAtFullterm()
+*Total simple interest charge at full term.
+*/
+carLoanCalculator.prototype.cumulativeAtFullterm = function() {
+	var fullTerm = new carLoanCalculator(this.d, this.i, this.n, this.n);
+	return ((fullTerm.payment() * fullTerm.m) - fullTerm.d +
+		fullTerm.balanceSimple());
 }
 
-carloanCalculator.prototype.balanceNonSimple = function() {
+/**
+*
+*balanceNonSimple()
+*Total interest charge of precomputed loan at month m.
+*/
+carLoanCalculator.prototype.balanceNonSimple = function() {
 	return this.d - this.payment() * this.m +
-	this.cumulative12term() * (1 - ((this.n - 12) * (this.n - 12 + 1))) /
-	(this.n * (this.n + 1));
+	this.cumulativeAtFullterm() * (1 - ((this.n - this.m) * (this.n - this.m + 1)) /
+	(this.n * (this.n + 1)));
 }
+
+module.exports = carLoanCalculator;
+
