@@ -66,5 +66,26 @@ carLoanCalculator.prototype.balanceNonSimple = function() {
 	(this.n * (this.n + 1)));
 }
 
+/**
+*
+*monthlySimpleInteresPaid()
+*Calculates the monthly interest paid on loan.
+*/
+carLoanCalculator.prototype.monthlySimpleInterestPaid = function() {
+	return this.balanceSimple() * (this.factorA() - 1);
+}
+
+/**
+*
+*monthlyNonSimpleInterestPaid()
+*Calculates the monthly precomputed  interest charge for loan.
+*/
+carLoanCalculator.prototype.monthlyNonSimpleInterestPaid = function() {
+	var numerator = this.n - this.m + 1;
+	var denom = this.n*(this.n+1)/2
+	return this.cumulativeAtFullterm()*(numerator/denom);
+}
+
+
 module.exports = carLoanCalculator;
 

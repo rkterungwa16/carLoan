@@ -1,5 +1,5 @@
 var assert = require("assert");
-var carLoanCalculator = require("../carLoanCalculator.js");
+var carLoanCalculator = require("../carloanCalculator.js");
 
 describe('carLoanCalculator', function() {
 	describe('Module carLoanCalculator', function() {
@@ -57,5 +57,15 @@ describe('carLoanCalculator', function() {
 			var loan = new carLoanCalculator(10000,0.07,36,11);
 			assert.equal(Math.round(loan.cumulativeAtFullterm()*100)/100, 1115.75);
 		});
+
+		it('monthlySimpleInterestPaid should equal 41.79', function() {
+			var loan = new carLoanCalculator(10000,0.07,36,11);
+			assert.equal(Math.round(loan.monthlySimpleInterestPaid()*100)/100, 41.79);
+		})
+
+		it('monthlyNonSimpleInterestPaid should equal 43.56', function() {
+			var loan = new carLoanCalculator(10000,0.07,36,11);
+			assert.equal(Math.round(loan.monthlyNonSimpleInterestPaid()*100)/100, 43.56);
+		})
 	})
 });
