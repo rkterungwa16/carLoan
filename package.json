@@ -1,0 +1,28 @@
+{
+  "name": "car_loan_calculator",
+  "version": "1.0.0",
+  "description": "displays amortization table for the loan",
+  "main": "carloancalculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkterungwa16/carLoan.git"
+  },
+  "keywords": [
+    "loan",
+    "interest",
+    "amount"
+  ],
+  "author": "Richard Kombol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkterungwa16/carLoan/issues"
+  },
+  "homepage": "https://github.com/rkterungwa16/carLoan#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
