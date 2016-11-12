@@ -11,7 +11,7 @@ function carLoanCalculator(d, i, n, m) {
 *Factor used in calculating monthly payments
 */
 carLoanCalculator.prototype.factorA = function() {
-	return (1 + this.i/12);
+	return (1 + (this.i)*0.01/12);
 }
 
 /**
