@@ -1,0 +1,97 @@
+/* General styling to input boxes */
+input[type=number]{
+	
+}
+
+/* Specific styling to input of type submit */
+button {
+	width: 20%;
+	margin-top: 50px;
+	background-color: #4CAF50;
+	color: white;
+	padding: 7px 14px;
+	margin: 0 250px;
+	font-weight: bold;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+/*Background hover color for submit button */
+input[type=submit]: hover {
+	background-color: #45a049;
+}
+
+fieldset {
+	border:0;
+	padding:20; margin:0;
+	height: 50%;
+	width: 50%;
+	background-color: powderblue;
+}
+
+
+
+
+/* Create proper alignment of labels */
+label {
+	display: inline-block;
+	font-weight: bold;
+	width: 250px;
+	float: left;
+	text-align: right;
+}
+/* Create proper alignment of input with labels */ 
+input {
+	display: inline-block;
+	float: left;
+}
+
+ #tablevalues table {
+	width: 60%;
+	border-collapse: 0;
+}
+
+ #tablevalues table th {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+	background:#EEE;
+}
+
+#tablevalues table td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+#userList table {
+		border-collapse:separate;
+		border-spacing:1px;
+		background:#CCC;
+	}
+		#userList table th {
+			background:#EEE;
+			font-weight:600;
+			padding:10px 20px;
+			text-align:center;
+		}
+		#userList table tbody {
+			padding:0; margin:0;
+			border-collapse:collapse;
+			border-spacing:0px;
+		}
+			#userList table td {
+				background:#FFF;
+				padding:5px 10px;
+				text-align:center;
+			}
+
+#userInfo {
+	width:250px;
+
+}
+#userInfo p {
+		padding:15px;
+		border:1px solid #CCC;
+		background:rgba(80,120,255,0.05);
+	} 

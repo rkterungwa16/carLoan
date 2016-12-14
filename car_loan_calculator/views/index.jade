@@ -1,0 +1,78 @@
+extends layout
+
+block content
+    h1 Car Loan Calculator
+    p Welcome to the car loan calculator
+    h2 Enter your car loan details
+    #addUser
+        fieldset
+            label User Name:
+            input#username(type='text')
+            br
+
+            label Email:
+            input#email(type='text')
+            br
+                
+            label Full Name:
+            input#fullname(type='text')
+            br
+        
+            label Amount Borrowed:
+            input#amount(type="number")
+            br
+
+            label Interest Rate:
+            input#interest(type="number")
+            br
+ 
+            label Full Term:
+            input#fullterm(type="number")
+            br
+
+            button#btnAddUser Add User
+    // FORM INPUT
+
+    // USER LIST
+    h2 User List
+    #userList
+        table
+            thead
+                th UserName
+                th Email
+                th Delete?
+            tbody
+    //  /USER LIST
+
+    // USER INFO
+    #userInfo
+        h2 User Info
+        p
+            strong Name:  
+            |    <span id='userInfoName'></span>
+            br
+            strong Amount:  
+            |    <span id='userInfoAmount'></span>
+            br
+            strong Interest:  
+            |    <span id='userInfoInterest'></span>
+            br
+            strong Fullterm:  
+            |    <span id='userInfoFullterm'></span>
+    // /USER INFO
+
+    // AMORTIZATION TABLE
+    br
+    h2 Vehicle Loan Repayments by Month
+    #tablevalues
+        table(style="border:0, width:100%, cellspacing:1, cellpadding:3")
+            thead
+                th Month
+                th Amount
+                th Interest
+                th Payment
+                th Balance Simple Interest
+                th Balance NonSimple Interest
+            tbody
+    // /AMORTIZATION TABLE
+  
